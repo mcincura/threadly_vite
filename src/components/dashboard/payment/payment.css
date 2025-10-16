@@ -1,0 +1,436 @@
+.payment-main {
+  background-image: radial-gradient(
+    63% 55% at 50% -1.6%,
+    rgb(74, 32, 138) 0%,
+    rgb(18, 18, 18) 100%
+  );
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px 0 0 0;
+  padding: 30px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.payment-main-bg {
+  background-image: url(../../../../public/assets/images/dark-pattern.png);
+  position: absolute;
+  border-radius: inherit;
+  inset: 0px;
+  background-repeat: repeat;
+  background-position: left top;
+  border: 0px;
+  background-size: 79px;
+}
+
+.payment-main-bg::after {
+  content: "";
+  position: absolute;
+  border-radius: inherit;
+  inset: 0px;
+  background-image: radial-gradient(
+    63% 55% at 50% -1.6%,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(18, 18, 18, 1) 100%
+  );
+}
+
+.payment-main-header {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #fff;
+  z-index: 1;
+}
+
+.payment-main-content {
+  flex: 1;
+  width: 100%;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.subscription-info{
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #e04b4b;
+}
+
+.subscription-info-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+  flex: 1;
+}
+
+.subscription-info-container p{
+  color: #fff;
+  font-size: 1rem;
+  margin: 0.1rem 0;
+}
+
+.subscription-info-container span{
+  font-weight: bold;
+}
+
+.subscription-info-buttons{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.subscription-info-buttons button{
+  color: #fff;
+  border: none;
+  padding: 0.6em 1.2em;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  min-width: 170px;
+}
+
+.cancel-btn {
+  background: #e04b4b;
+}
+
+.payment-methods-btn {
+  background: #883cf3;
+}
+
+.invoice-list{
+  width: 100%;
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+
+  padding: 1rem;
+  box-sizing: border-box;
+
+  background-color: #cb3737;
+}
+
+.invoice-table-wrapper {
+  width: 100%;
+  background: #343434;
+  flex: 1;
+  padding: 1rem;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.invoice-table{
+  width: 100%;
+  border-radius: 8px;
+}
+
+.invoice-table th,
+.invoice-table td {
+  padding: 12px 0;
+  border: none;
+  background: transparent;
+  text-align: left;
+}
+
+.invoice-table th {
+  font-weight: 700;
+  color: #fff;
+  background: transparent;
+}
+
+.invoice-table tr {
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  transition: background 0.15s;
+}
+
+.invoice-table tr:hover {
+  background: rgba(136, 60, 243, 0.08);
+}
+
+.invoice-table td a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.pay-btn {
+  background: #2ecc40;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.15s;
+}
+
+.pay-btn:hover {
+  background: #27ae38;
+}
+
+.invoice-menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #fff;
+  padding: 0 8px;
+  transition: color 0.15s;
+}
+
+.invoice-menu-btn:hover {
+  color: #883cf3;
+}
+
+.invoice-status {
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.95em;
+  font-weight: 600;
+  background: #232323;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+.invoice-status.paid {
+  background: #2ecc40;
+  color: #fff;
+}
+
+.invoice-status.open,
+.invoice-status.unpaid {
+  background: #e04b4b;
+  color: #fff;
+}
+
+/*
+
+
+
+
+
+PAYMENT MODAL STYLES
+
+
+
+
+
+*/
+
+.modal-overlay {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  min-width: 40vw;
+  background-color: hsl(0, 0%, 10%);
+  padding: 2rem;
+  box-sizing: border-box;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.modal-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #fff;
+  z-index: 1;
+}
+
+.payment-method-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  list-style: none;
+}
+
+.payment-method-item {
+  background-color: hsl(0, 0%, 20%);
+  border-radius: 8px;
+  width: 100%;
+  padding: 0.75rem;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.payment-method-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.normal-pm {
+  display: flex;
+  gap: 0.5em;
+}
+
+.normal-pm button {
+  margin-left: 0.5em;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5em 0.8em;
+  cursor: pointer;
+  font-size: 0.95em;
+  min-width: 80px;
+  font-weight: bold;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  transition: scale 0.2s ease-out;
+}
+
+.normal-pm button:hover {
+  scale: 1.02;
+}
+
+.set-default-btn {
+  background: #883cf3;
+}
+
+.delete-btn {
+  background-color: #cb3737;
+}
+
+.default-badge {
+  margin-left: 0.5em;
+  background: #5bb54d;
+  color: #dbdbdb;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5em 0.8em;
+  font-size: 0.95em;
+  min-width: 80px;
+  font-weight: bold;
+}
+
+.add-payment-method-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  margin-top: 1rem;
+  background-color: hsl(0, 0%, 20%);
+  padding: 0.75rem;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.add-payment-method-form h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.add-pm-form-wrapper {
+  width: 100%;
+}
+
+.add-pm-form-wrapper form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.add-payment-method-form .StripeElement {
+  background: hsl(0, 0%, 10%);
+  border-radius: 8px;
+  padding: 0.75rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.stripe-form-card button,
+form button[type="add-pm-submit"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #883cf3;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0 8px #883cf3;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    box-shadow 0.2s;
+}
+
+.stripe-form-card button:hover,
+form button[type="add-pm-submit"]:hover {
+  background: #fff;
+  color: #883cf3;
+  box-shadow: 0 0 12px #883cf3;
+}
+
+.modal-close-button {
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: #fff;
+  transition:
+    scale 0.2s ease-out,
+    color 0.2s ease-out;
+}
+
+.modal-close-button:hover {
+  color: #883cf3;
+  cursor: pointer;
+  transform: scale(1.1);
+}

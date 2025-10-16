@@ -1,0 +1,10 @@
+/* balatro.css */
+.balatro-container {
+  width: 100vw;
+  height: 100vh;
+  background: #121212;
+}
+.balatro-container canvas {
+  background: #121212 !important;
+  display: block;
+}
