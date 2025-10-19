@@ -11,7 +11,7 @@ export const UserProvider = ({ children }) => {
     // Check for valid token cookie on mount
     const checkAuth = async () => {
       try {
-        const res = await axios.get("/auth/me", {
+        const res = await axios.get("/api/auth/me", {
           withCredentials: true,
         });
         if (res.status === 200 && res.data.user) {

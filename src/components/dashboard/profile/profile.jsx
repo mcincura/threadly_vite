@@ -58,7 +58,7 @@ const Profile = ({ user }) => {
         if (deleteInput === (user?.email || '')) {
             try {
                 // send DELETE with body using axios (axios.delete accepts `data` in config)
-                await axios.delete('/profile/delete-account', {
+                await axios.delete('/api/profile/delete-account', {
                     data: { id: user.user.id }
                 });
                 // close modal on success (optionally show a toast or redirect)
@@ -76,7 +76,7 @@ const Profile = ({ user }) => {
     const handleUsernameEdit = async () => {
         if (isEditingUsername) {
             try {
-                await axios.put('/profile/edit-username', {
+                await axios.put('/api/profile/edit-username', {
                     id: user.user.id,
                     newUsername: username
                 });
@@ -98,7 +98,7 @@ const Profile = ({ user }) => {
 
             try {
                 // Request verification to new email (server will send the verification code)
-                const response = await axios.put('/profile/edit-email', {
+                const response = await axios.put('/api/profile/edit-email', {
                     id: user.user.id,
                     newEmail: email
                 });
@@ -116,7 +116,7 @@ const Profile = ({ user }) => {
     //FUN - verify email change
     const handleEmailVerification = async () => {
         try {
-            const response = await axios.post('/profile/confirm-email-change', {
+            const response = await axios.post('/api/profile/confirm-email-change', {
                 id: user.user.id,
                 newEmail: email,
                 verification_code: verificationCode
@@ -153,7 +153,7 @@ const Profile = ({ user }) => {
         }
 
         try {
-            const response = await axios.post('/profile/change-password', {
+            const response = await axios.post('/api/profile/change-password', {
                 currentPassword,
                 newPassword
             }, { withCredentials: true });

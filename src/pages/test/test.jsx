@@ -33,7 +33,7 @@ const CheckoutForm = ({ email, userId, deviceCount, onSuccess }) => {
             }
 
             // Step 2: Send to backend to create subscription
-            const { data } = await axios.post("/test/subscribe", {
+            const { data } = await axios.post("/api/test/subscribe", {
                 paymentMethodId: paymentMethod.id,
                 email,
                 user_id: userId,

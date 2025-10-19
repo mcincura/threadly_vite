@@ -7,7 +7,7 @@ import { Elements, CardElement, useStripe, useElements } from "@stripe/react-str
 
 import './checkout.css';
 
-const API_URL = "http://localhost:3001/auth";
+const API_URL = "/api/auth";
 const STRIPE_PUBLIC_KEY = "pk_test_51S3YAs7GapckM751dqbjBCkO0d6rPxbqmoI7MEJgSEUcoSQP4fRXDZ38LnTuUJmC5j77E9eCztLwIuHhSMQP9Ex000QCcDYywf";
 const stripePromise = loadStripe(STRIPE_PUBLIC_KEY);
 
@@ -38,7 +38,7 @@ const CheckoutForm = ({ email, userId, deviceCount, onSuccess }) => {
 			}
 
 			// Step 2: Send to backend to create subscription
-			const { data } = await axios.post("/test/subscribe", {
+			const { data } = await axios.post("/api/test/subscribe", {
 				paymentMethodId: paymentMethod.id,
 				email,
 				user_id: userId,
@@ -180,7 +180,7 @@ const Checkout = () => {
 
 			// Record affiliate register event
 			if (response.status === 200 && ref_link) {
-				await axios.post("/event/register", {
+				await axios.post("/api/event/register", {
 					ref_link,
 					user_email: email
 				});
@@ -209,7 +209,7 @@ const Checkout = () => {
 		const dollarAmount = (amount / 100).toFixed(2);
 
 		try {
-			await axios.post("/event/payment", {
+			await axios.post("/api/event/payment", {
 				ref_link,
 				user_email,
 				amount: dollarAmount

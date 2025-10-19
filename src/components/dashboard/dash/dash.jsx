@@ -72,7 +72,7 @@ const Dash = ({ setActive, open, user, loggedIn }) => {
 
     const handleLogout = async () => {
         try {
-            await axios.post("/auth/logout", {}, { withCredentials: true });
+            await axios.post("/api/auth/logout", {}, { withCredentials: true });
             window.location.href = "/";
         } catch (error) {
             window.location.href = "/";

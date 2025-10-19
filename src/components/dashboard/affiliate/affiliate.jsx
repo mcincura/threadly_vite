@@ -47,7 +47,7 @@ const Affiliate = ({ user, loggedIn }) => {
   useEffect(() => {
     async function fetchTopAffiliates() {
       try {
-        const res = await axios.get('/affiliate/top');
+        const res = await axios.get('/api/affiliate/top');
         if (res.data && Array.isArray(res.data.topAffiliates)) {
           // Convert amount to number if needed
           const affiliates = res.data.topAffiliates.map(a => ({
@@ -95,7 +95,7 @@ const Affiliate = ({ user, loggedIn }) => {
       return;
     }
     try {
-      const res = await axios.put('/affiliate/change-link', {
+      const res = await axios.put('/api/affiliate/change-link', {
         id: user.user.id,
         newLink: name
       });
@@ -118,7 +118,7 @@ const Affiliate = ({ user, loggedIn }) => {
       return;
     }
     try {
-      const res = await axios.post('/affiliate/signup', {
+      const res = await axios.post('/api/affiliate/signup', {
         id: user.user.id,
         link: name,
         email_report: agreeEmail
@@ -148,7 +148,7 @@ const Affiliate = ({ user, loggedIn }) => {
       return;
     }
     try {
-      const res = await axios.post('/affiliate/check-link', { link });
+      const res = await axios.post('/api/affiliate/check-link', { link });
       if (res.data.available) {
         setLinkAvailable(true);
         setLinkError('');
@@ -201,7 +201,7 @@ const Affiliate = ({ user, loggedIn }) => {
   async function fetchAffiliateLink(userId) {
     if (!userId) return null;
     try {
-      const res = await axios.get(`/affiliate/link/${userId}`);
+      const res = await axios.get(`/api/affiliate/link/${userId}`);
       if (res.data && res.data.link) {
         return res.data.link;
       } else {

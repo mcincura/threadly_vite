@@ -99,7 +99,7 @@ const Login = () => {
             setIsSignup(false);
 
             if (response.status === 200 && ref_link) {
-                await axios.post('/event/register', { ref_link, user_email: email });
+                await axios.post('/api/event/register', { ref_link, user_email: email });
             }
         } catch (err) {
             alert(err.response?.data?.error || "Verification failed.");
