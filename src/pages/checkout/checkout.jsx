@@ -118,7 +118,7 @@ const Checkout = () => {
 		const params = new URLSearchParams(window.location.search);
 		const devices = parseInt(params.get("devices"), 10) || 1;
 		setDeviceCount(devices);
-		axios.post("/payment/device-price", { device_count: devices })
+		axios.post("/api/payment/device-price", { device_count: devices })
 			.then(res => {
 				// Convert dollars to cents for Stripe
 				setAmount(Math.round(Number(res.data.price) * 100));

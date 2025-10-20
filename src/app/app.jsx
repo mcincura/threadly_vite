@@ -1,8 +1,7 @@
 import {
     BrowserRouter as Router,
     Route,
-    Routes,
-    useLocation
+    Routes
 } from 'react-router-dom';
 import { useEffect, useContext } from 'react';
 import axios from 'axios';
