@@ -63,7 +63,7 @@
   justify-content: flex-start;
 }
 
-.subscription-info{
+.subscription-info {
   margin-bottom: 1.5rem;
   padding: 1rem 1.5rem;
   border-radius: 10px;
@@ -72,10 +72,10 @@
   justify-content: center;
   width: 100%;
   box-sizing: border-box;
-  background-color: #e04b4b;
+  /*background-color: #e04b4b;*/
 }
 
-.subscription-info-container{
+.subscription-info-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -84,17 +84,17 @@
   flex: 1;
 }
 
-.subscription-info-container p{
+.subscription-info-container p {
   color: #fff;
   font-size: 1rem;
   margin: 0.1rem 0;
 }
 
-.subscription-info-container span{
+.subscription-info-container span {
   font-weight: bold;
 }
 
-.subscription-info-buttons{
+.subscription-info-buttons {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -102,7 +102,7 @@
   gap: 0.5rem;
 }
 
-.subscription-info-buttons button{
+.subscription-info-buttons button {
   color: #fff;
   border: none;
   padding: 0.6em 1.2em;
@@ -121,7 +121,7 @@
   background: #883cf3;
 }
 
-.invoice-list{
+.invoice-list {
   width: 100%;
   flex: 1;
 
@@ -139,7 +139,7 @@
 
 .invoice-table-wrapper {
   width: 100%;
-  background: #343434;
+  /*background: #343434;*/
   flex: 1;
   padding: 1rem;
   box-sizing: border-box;
@@ -150,7 +150,7 @@
   justify-content: flex-start;
 }
 
-.invoice-table{
+.invoice-table {
   width: 100%;
   border-radius: 8px;
 }
